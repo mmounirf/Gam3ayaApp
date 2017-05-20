@@ -1,1 +1,68 @@
-/* Empty. Add your own CSS if you like */
+/*
+/////////////////
+Global Styles
+////////////////
+*/
+.button{
+    border-radius: 0;
+}
+
+/*
+/////////////////
+Sign In Page
+////////////////
+*/
+
+.signin-heading{
+    padding-top: 25px;
+}
+
+.signin-page .btn-show-password{
+    color: #000!important;
+    position: absolute;
+    top: 28%;
+    right: 0;
+    z-index: 10;
+}
+
+.signin-btn{
+    width: 90%;
+    margin: 15px auto;
+    display: block;
+}
+
+.sign_in_form input{
+    margin-left: 5px;
+}
+
+.signin-page{
+    text-align: center;
+}
+
+/*
+/////////////////
+Sign Up Page
+////////////////
+*/
+.signup-page .btn-show-password{
+    color: #000!important;
+    position: absolute;
+    top: 16%;
+    right: 0;
+    z-index: 10;
+}
+
+.signup-form input{
+    margin-left: 5px;
+}
+
+.signup-fb-btn{
+    background-color: #3b5998;
+    color: #FFF;
+}
+
+.signup-btn{
+    margin: 0 auto;
+    width: 90%;
+    display: block;
+}

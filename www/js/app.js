@@ -1,4 +1,4 @@
-var Gam3ayaApp = angular.module('Gam3ayaApp', ['ionic'])
+var Gam3ayaApp = angular.module('Gam3ayaApp', ['ionic', 'ionic.cloud'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -16,14 +16,30 @@ var Gam3ayaApp = angular.module('Gam3ayaApp', ['ionic'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
+.config(function($stateProvider, $urlRouterProvider, $ionicCloudProvider) {
 
+  $ionicCloudProvider.init({
+    "core": {
+      "app_id": "d43a08d3"
+    }
+  })
+
+  $stateProvider
     .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
+  })
+
+  .state('app.dashboard', {
+    url: '/dashboard',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/dashboard.html',
+        controller: 'DashboardCtrl'
+      }
+    }
   })
 
   .state('app.signin', {
@@ -36,7 +52,6 @@ var Gam3ayaApp = angular.module('Gam3ayaApp', ['ionic'])
     }
   })
 
-
   .state('app.signup', {
     url: '/signup',
     views: {
@@ -45,7 +60,18 @@ var Gam3ayaApp = angular.module('Gam3ayaApp', ['ionic'])
         controller: 'SignUpCtrl'
       }
     }
+  })
+
+  .state('app.create_group', {
+    url: '/create_group',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/create_group.html',
+        controller: 'CreateGroupCtrl'
+      }
+    }
   });
-  // if none of the above states are matched, use this as the fallback
+
+
   $urlRouterProvider.otherwise('/app/signin');
 });
